@@ -10,7 +10,7 @@ jobs:
     steps:
     - checkout
     - run: make promu
-    - run: make
+    - run: make check_license style unused test staticcheck
     - run: rm -v prometheus
 
   build:
