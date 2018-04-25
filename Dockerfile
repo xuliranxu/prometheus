@@ -10,6 +10,8 @@ COPY consoles/                              /usr/share/prometheus/consoles/
 RUN ln -s /usr/share/prometheus/console_libraries /usr/share/prometheus/consoles/ /etc/prometheus/
 RUN mkdir -p /prometheus && \
     chown -R nobody:nogroup etc/prometheus /prometheus
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 USER       nobody
 EXPOSE     9090
